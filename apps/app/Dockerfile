@@ -1,10 +1,10 @@
-FROM node:13 as node
+FROM node:14 as node
 WORKDIR /app/apps/app
 COPY ./apps/app/package.json ./package.json
 RUN npm install
 COPY . ../../
 WORKDIR /app
-RUN npm ci
+RUN npm i
 WORKDIR /app/apps/app
 ARG env=prod
 RUN PUBLIC_URL=http://127.0.0.1:3001 npm run build
