@@ -4,7 +4,7 @@ COPY ./apps/app/package.json ./package.json
 RUN npm install
 COPY . ../../
 WORKDIR /app
-RUN npm i
+RUN npm ci
 WORKDIR /app/apps/app
 ARG env=prod
 RUN PUBLIC_URL=http://127.0.0.1:3001 npm run build
